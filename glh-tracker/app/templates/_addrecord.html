@@ -1,0 +1,47 @@
+<div class="modal" id="new-record-modal">
+    <div class="modal-background">
+        <div class="modal-content animate__animated animate__zoomIn animate__faster">
+            <div class="box" id="modal-form">
+                <div class="card">
+                    <button class="delete"></button>
+                    <div class="card-content">
+                        <div class="title has-text-centered">Add GLH Record</div>
+                        <form action="{{ url_for('add_record') }}" id="new-record" method="POST">
+
+                            <div class="field">
+                                <label class="label is-small" for="session-name">Session Name</label>
+                                <div class="control">
+                                    <input class="input is-primary is-small" id="session-name" name="session-name" required
+                                           type="text">
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label is-small" for="session-date">Session Date</label>
+                                <div class="control">
+                                    <input class="input is-primary is-small" id="session-date" name="session-date"
+                                           type="date"
+                                           required>
+                                </div>
+                            </div>
+
+
+                            <div class="field">
+                                <label class="label is-small" for="session-duration">Session Duration (Minutes)</label>
+                                <div class="control">
+										<input class="input is-primary is-small" id="session-duration" name="session-duration"
+                                               required type="number"></input>
+                                </div>
+                            </div>
+
+                            <footer class="card-footer">
+                                <button class="button is-primary is-fullwidth m-2" type="submit">Submit</button>
+                            </footer>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

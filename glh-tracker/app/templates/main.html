@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="columns">
+    <div class="column has-text-centered top-bar">
+        <span class="heading title is-6">Current Total Guided Learning Hours<br></span>
+        <span class="is-8">{{ current_hours}} hours and {{ current_minutes}} minutes</span>
+    </div>
+</div>
+    <div class="buttons is-centered">
+        <button class="button is-success js-modal-trigger" data-target="new-record-modal">Add New GLH Record</button>
+    </div>
+<div class="buttons is-centered">
+    <a class="button is-small" href="{{ url_for('get_csv') }}">Export to CSV</a>
+</div>
+<hr class="body-div">
+<div class="table-container has-text-centered">
+    <table class="table is-bordered is-hoverable is-striped is-narrow">
+        <thead>
+        <tr>
+            <th>Session Name</th>
+            <th>Session Date</th>
+            <th>Session Duration (Minutes)</th>
+            <th class="table-actions">Actions</th>
+        </tr>
+        </thead>
+        {% if table_data %}
+        <tbody>
+        {% for item in table_data %}
+        <tr>
+        <td>{{ item.session_name }}</td>
+        <td>{{ item.session_date }}</td>
+        <td>{{ item.session_duration }}</td>
+        <td class="table-actions">
+            <div class="buttons is-centered">
+            <button class="button is-small is-warning js-modal-trigger"
+                    data-target="edit-record-modal" data-id="{{ item.id }}"
+            data-name="{{ item.session_name }}" data-date="{{ item.session_date|jsdateformat }}"
+                    data-duration="{{ item.session_duration }}"><span class="icon"><i
+                    class="fa-solid fa-pen fa-xs"></i></span></button>
+            <form action="{{ url_for('delete_record') }}" method="POST">
+                <input type="text" name="item-id" id="item-id" value="{{ item.id }}" hidden>
+            <button class="button is-small is-danger"
+                    id="delete-record"><span
+                    class="icon"><i class="fa-solid fa-xmark fa-xs"></i></span></button>
+            </form>
+                </div>
+        </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        {% endif %}
+    </table>
+</div>
+
+{% endblock %}
+{% block script %}
+
+
+{% endblock %}
