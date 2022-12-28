@@ -5,7 +5,10 @@ Uses flask combined with flaskwebui for the user interface.
 
 ![Screenshot](screenshot.png)
 
+First:
+```
 pip install requirements.txt
+```
 
-Run wsgi.py
+Then run wsgi.py
 
