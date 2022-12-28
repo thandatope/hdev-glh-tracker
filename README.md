@@ -3,7 +3,7 @@ A guided learning hours tracker for the HyperionDev software engineering course.
 
 Uses flask combined with flaskwebui for the user interface.
 
-![Screenshot](docs/screenshot.png)
+![Screenshot](screenshot.png)
 
 pip install requirements.txt
 
